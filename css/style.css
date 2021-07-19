@@ -1,0 +1,676 @@
+@import 'utilities.css';
+
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    -webkit-font-smotthing:antialiased;
+}
+
+
+
+:root{
+    --dark:#161616;
+    --pure:#FFFFFF;
+    --ternary: #898989;
+    --light:#F2F2F2;
+    --secondary:#070606;
+}
+
+
+
+/*
+* ============= PRELOADER ==================================================================
+*/
+
+.loader-container{
+    z-index: 8000;
+    width: 100%;
+    height: 100vh;
+    background-color: #111;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loader{
+    width: 50px;
+    height: 50px;
+    border: 5px solid;
+    color: #3498db;
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: loader 1.2s linear infinite;
+}
+
+@keyframes loader{
+    25%{
+        color: #2ecc71;
+    }
+    50%{
+        color: #f1c40f;
+    }
+    75%{
+        color: #e74c3c;
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+
+body{
+    font-family: 'Poppins', sans-serif;
+    background:var(--secondary);
+}
+
+.wrapper{
+    /*hogy szélesebb legyen és beférjen a menü*/
+    max-width: 1252px;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+
+
+.site-main-wrapper{
+    background: linear-gradient(100deg, #494742 0%, #e0ce97 0%, #000000 27%, #ffffff 100%);
+}
+
+
+
+
+/*
+* HEADER NAV SECTION ***********************************************************************
+*/
+
+
+header{
+    background:url("../images/sitebgCubeX.jpg") no-repeat fixed;
+    z-index: 5;
+    /*height:800px;*/
+    clip-path:polygon(0 0, 100% 0, 100% 100%, 70% 87%, 0 100%);
+}
+
+
+.headLogo{
+    width:180px;
+    height:40px;
+
+}
+
+/*
+* PROGRESSBAR LIGHT ***********************************************************************
+*/
+
+#scrollPath{
+    position: fixed;
+    top:0;
+    right:0;
+    width: 10px;
+    height:50%;
+    background:#ffffff0d;
+}
+
+
+
+#preogressbar{
+    z-index: 1200;
+    position: fixed;
+    top:0;
+    right:0;
+    width:8px;
+    background: linear-gradient(to top, #008aff,#00ffe7);
+    animation: animate 5s linear infinite;
+ 
+}
+
+#preogressbar:before,
+#preogressbar::after
+{
+    content: '';
+    position: absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background: linear-gradient(to top, #008aff,#00ffe7);
+    filter:blur(10px);
+}
+
+#preogressbar::after{
+
+    filter:blur(30px);
+}
+
+@keyframes animate
+{
+    0%,100%
+    {
+        filter: hue-rotate(0deg);
+    }
+    50%
+    {
+        filter: hue-rotate(360deg);
+    }
+}
+
+
+::-webkit-scrollbar{
+    width: 0;
+}
+
+
+/*
+* HERO SECTION **********************************************************************
+*/
+
+.hero{
+    padding:3rem 0;
+}
+
+
+#animeImg{
+    width:400px;
+}
+
+.hero .right{
+    color:var(--pure);
+}
+
+.hero .right .nameStyle{
+    font-family: 'Architects Daughter', cursive;
+    color:#3DCFD3;
+    text-shadow: 1px 1px 25px #3DCFD3;
+    letter-spacing: 2px;
+}
+
+.hero .right h6{
+    font-size:1.6rem;
+    color:var(--pure);
+    margin-bottom: 0.5rem;
+}
+
+
+.hero .right .text-3{
+    font-size: 2rem;
+    line-height: 1.2;
+    margin-bottom: 2rem;
+}
+
+
+.hero .right .text-3 span{
+    color: crimson;
+    text-shadow: 1px 1px 25px #ff0000;
+    font-weight: 500; 
+}
+
+/* Cursor */
+.hero .right .text-3 span .typing {
+    border-right: 3px solid crimson;
+}
+
+.hero .right p{
+    line-height: 1.9;
+    margin-bottom: 2rem;
+}
+
+.hero .right{
+    margin-top:-7rem;
+}
+
+.cursor{
+	width:20px;
+	height:20px;
+	
+}
+
+
+/*
+* ABOUT SECTION *********************************************************
+*/
+
+
+section{
+    padding: 6rem 0;
+}
+
+section.about #bground{
+    background:linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)), url("../images/IDWallpaper.jpg");
+    box-shadow: 1px 1px 15px #6effe0;
+    border-radius: 12px;
+}
+
+
+section.about .writing{
+    padding: 20px;
+    background-color: #1e1f22;
+    color: white;
+    box-shadow: 1px 1px 15px #6effe0;
+    border-radius: 50px;
+}
+
+
+section.about .about-me-img{
+    height:450px;
+    border-radius: 25%;
+}
+
+section.about h1{
+    color: white;
+    margin-bottom: 1rem;
+    text-align: center;
+    font-size:1.6rem;
+    font-weight: 400;
+}
+
+section.about h1 span{
+    color:#3DCFD3;
+}
+
+
+section.about h3{
+    color:#fff;
+    font-size:1rem;
+    margin-bottom: 1rem;
+    font-weight: 400;
+}
+
+section.about a{
+    color:#3DCFD3 !important;
+}
+
+section.about .nav-link.active{
+    color: #fff;
+    background-color: #161616 !important;
+    box-shadow: 1px 1px 15px #6effe0;
+}
+
+
+section.about .tab-content{
+    padding: 20px;
+    background-color: #161616;
+    color: white;
+    box-shadow: 1px 1px 15px #6effe0;
+}
+
+
+
+section.about p{
+    font-family:'Lato', sans-serif;
+    color:var(--ternary);
+    line-height: 1.8;
+    margin-bottom: 2rem;
+}
+
+section.about .social{
+    display:flex;
+    justify-content: center;
+    margin-top:90px;
+}
+
+section.about .social a{
+    background:#161616;
+    box-shadow: 1px 1px 15px #6effe0;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    width:35px;
+    height:35px;
+    border-radius: 50%;
+    margin-right:0.6rem;
+    transition: all .3s ease;
+
+}
+
+section.about .social a:hover{
+    background-color:#3DCFD3;
+}
+
+
+section.about .social a img{
+    width:100%;
+    height: 100%;
+    padding: 0.5rem;
+}
+
+
+
+/*
+* PROJECTEK SECTION ***************************************************************************
+*/
+
+
+section.projectList{
+    background: linear-gradient(rgba(0, 0, 0, 0.702),rgba(0, 0, 0, 0.702)),url('../images/projectBack.jpg') fixed;
+}
+
+section.projectList .section-heading{
+    color:var(--pure);
+}
+
+section.projectList p{
+    text-align: center;
+    color: var(--pure);
+}
+
+
+@media (max-width: 950px) {
+    section.projectList .portfolio-row {
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+}
+
+/*For the bigest project container*/
+#projectWrapper{
+    max-width: 90%;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+
+
+
+section.projectList .portfolio-item-wrapper {
+    width: 31%;
+    display: inline-block;
+    padding: 0 0 5px;
+    margin: 0 1% 30px;
+    vertical-align: top;
+}
+
+@media (max-width: 950px) {
+    section.projectList .portfolio-item-wrapper {
+        width: 47%;
+    }
+}
+
+@media (max-width: 630px) {
+    section.projectList .portfolio-item-wrapper {
+        width: 100%;
+    }
+}
+
+section.projectList .portfolio-item {
+    display: block;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.148438) 0 1px 2px;
+    box-shadow: rgba(0, 0, 0, 0.148438) 0 1px 2px;
+    padding: 0;
+    margin-bottom: 10px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+section.projectList .portfolio-item img {
+    max-width: 100%;
+    width: 100%;
+    opacity: 1.0;
+    transition: 0.3s ease-in-out;
+    -moz-transition: 0.3s ease-in-out;
+    -webkit-transition: 0.3s ease-in-out;
+}
+
+section.projectList .portfolio-overlay {
+    position: absolute;
+    background-color: rgba(26, 30, 31, 0.85);
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+}
+
+section.projectList .portfolio-info,
+section.projectList .links,
+section.projectList .links a i,
+section.projectList .links a i::after,
+section.projectList .portfolio-overlay {
+    -webkit-transition: all 400ms;
+    -moz-transition: all 400ms;
+    -o-transition: all 400ms;
+    transition: all 400ms;
+}
+
+section.projectList .links {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 36%;
+    left: 0;
+    right: 0;
+    text-align: center;
+    margin: 0 auto;
+    opacity: 0;
+    -webkit-transform: translate(0, -50px);
+    -moz-transform: translate(0, -50px);
+    -ms-transform: translate(0, -50px);
+    -o-transform: translate(0, -50px);
+    transform: translate(0, -50px);
+}
+
+section.projectList .links a i {
+    position: relative;
+    color: #fff;
+    font-size: 24px;
+    margin: 0 13px;
+    z-index: 100;
+}
+
+section.projectList .links a:hover i {
+    color: #fff;
+}
+
+section.projectList .links a i::after {
+    position: absolute;
+    content: "";
+    left: -7px;
+    top: -7px;
+    width: 30px;
+    height: 30px;
+    /*border: 1px solid #fff;*/
+    z-index: -1;
+    border-radius: 50%;
+}
+
+/*
+section.projectList .links a:hover i::after {
+    background: rgba(255, 255, 255, 0.2);
+}
+*/
+
+section.projectList .portfolio-info {
+    position: absolute;
+    bottom: -100%;
+    left: 0;
+    background-color: #00009C;
+    color: #fff;
+    height: 45px;
+    width: 100%;
+    text-align: center;
+}
+
+section.projectList .portfolio-item:hover .portfolio-overlay,
+section.projectList .portfolio-item:hover .links {
+    opacity: 1;
+    -webkit-transform: translate(0, 0);
+    -moz-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
+    -o-transform: translate(0, 0);
+    transform: translate(0, 0);
+}
+
+section.projectList .portfolio-item:hover .portfolio-info {
+    bottom: 0;
+}
+
+section.projectList .portfolio-info h3 {
+    font-size: 14px;
+    line-height: 45px;
+    font-weight: 400;
+    margin: 0;
+}
+
+
+
+
+/*
+*  CONTACT SECTION ***************************************************************************
+*/
+
+
+#wrapSize{
+    width:400px;
+}
+
+
+
+section.contact .card-wrapper .card{
+    text-align: center;
+   
+}
+
+section.contact .card-wrapper .card img{
+    margin-bottom: 1rem;
+}
+
+.letterLight{
+    width:100%;
+    height:50px;
+}
+
+section.skills-section p{
+    text-align: center;
+    color: #fff;
+}
+
+
+
+section.contact .card-wrapper .card h1{
+    font-weight:400;
+    margin-bottom: 1rem;
+}
+
+section.contact .card-wrapper .card h6{
+    font-size: 1rem;
+    color:#161616;
+    font-weight: 400;
+    margin-bottom: 4rem;
+}
+
+
+section.contact .input-wrap{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap:2rem;
+    margin-bottom: 2rem;
+}
+
+
+
+.mailLogo{
+
+    height:100px;
+    text-align: center;
+}
+
+
+
+section.contact .input-wrap-2{
+    display: flex;
+    flex-direction: column;
+}
+
+section.contact .input-wrap-2 input{
+    margin-bottom: 2rem;
+}
+
+section.contact input{
+    padding:0.5rem;
+    border:1px solid var(--light);
+    font-size: 0.9rem;
+}
+
+
+section.contact .input-wrap-2 textarea{
+    padding:0.5rem;
+    border:1px solid var(--light);
+    font-size: 0.9rem;
+}
+
+section.contact .input-wrap-2 textarea:focus, section.contact input:focus{
+    outline:none;
+}
+
+
+section.contact .btn-wrapper{
+    text-align:center;
+    margin-top: 2rem;
+}
+
+
+section.contact .card1{
+    background: rgb(250, 255, 223);
+}
+
+
+
+/*
+* FOOTER SECTION*********************************************************************************
+*/
+
+footer{
+    background:#161616;
+    text-align: center;
+    padding:5rem 0;
+}
+
+footer .footer-logo{
+    margin-bottom: 3rem;
+    width:150px;
+}
+
+.footer-socials{
+    margin-bottom: 3rem;
+    display: flex;
+    justify-content: center;
+}
+
+
+
+footer .footer-socials a{
+    margin-right: 1rem;
+    background:#afaeae;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    width:35px;
+    height:35px;
+    border-radius: 50%;
+    margin-right:0.6rem;
+    transition: all .3s ease;
+}
+
+
+footer .footer-socials a img{
+    width:100%;
+    height: 100%;
+    padding: 0.5rem;
+}
+
+
+footer .footer-socials a:hover{
+    background-color:#3DCFD3;
+}
+
+
+footer .copyright{
+    color:var(--ternary);
+}
+
+
